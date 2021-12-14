@@ -25,6 +25,8 @@ function startNewGame() {
   const buttonContainer = document.getElementsByClassName("button-container");
   buttonContainer[0].classList.add("hidden");
 
+  displayRandomCoinAmount();
+  displayRandomCardAmount();
   displayRandomFlagColor();
 
   const lines = document.getElementsByClassName("stats-line");
@@ -48,6 +50,21 @@ function displayGradientContainer(type) {
     const gradientContainer = document.getElementsByClassName("gradient-red");
     gradientContainer[0].classList.remove("opacity-off");
   }
+}
+
+function displayRandomCoinAmount() {
+  let index = Math.round(Math.random()) + 1;
+  const amount = document.getElementsByClassName("stats-coin-amount");
+  amount[0].textContent = "";
+  for (let i = 0; i < index; i++) {
+    amount[0].textContent += "◉ ";
+  }
+}
+
+function displayRandomCardAmount() {
+  let index = Math.round(Math.random() * 2) + 6;
+  const amount = document.getElementsByClassName("stats-card-amount");
+  amount[0].textContent = index;
 }
 
 function displayRandomFlagColor() {
