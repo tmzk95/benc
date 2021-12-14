@@ -2,11 +2,11 @@ body {
   margin: 0;
   background-image: url("../images/stone3.jpg");
   height: 100vh;
-  color: #c4a255;
+  color: #b4b4b4;
   font-family: "Bebas Neue", cursive;
 }
 
-.gradient-container-gold {
+.gradient-container {
   margin-top: 290px;
   padding-top: 30px;
   padding-bottom: 10px;
@@ -17,37 +17,36 @@ body {
   color: rgba(0, 0, 0, 0.8);
   position: absolute;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  animation: gradient 12s ease infinite;
+  transition-duration: 3s;
+  transition-delay: 1s;
+}
+
+.gradient-gold {
   background: linear-gradient(320deg, rgb(255 253 43), transparent 70%),
     linear-gradient(120deg, rgb(255 0 0), transparent 120%),
     linear-gradient(230deg, rgb(255 217 54), transparent 70%),
     linear-gradient(80deg, rgb(255 225 86), transparent 70%);
   background-size: 300% 200%;
   background-blend-mode: saturation;
-  animation: gradient 12s ease infinite;
-  transition-duration: 3s;
-  transition-delay: 1s;
 }
 
-.gradient-container-green {
-  margin-top: 290px;
-  padding-top: 30px;
-  padding-bottom: 10px;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+.gradient-green {
   background: linear-gradient(320deg, rgb(43, 255, 124), transparent 70%),
     linear-gradient(120deg, rgb(66, 185, 194), transparent 120%),
     linear-gradient(230deg, rgb(195, 255, 54), transparent 70%),
     linear-gradient(80deg, rgb(56, 124, 56), transparent 70%);
   background-size: 300% 200%;
   background-blend-mode: saturation;
-  animation: gradient 12s ease infinite;
-  transition-duration: 3s;
-  transition-delay: 1s;
+}
+
+.gradient-red {
+  background: linear-gradient(320deg, rgb(255 60 119), transparent 70%),
+    linear-gradient(120deg, rgb(255 0 0), transparent 120%),
+    linear-gradient(230deg, rgb(239 142 142), transparent 70%),
+    linear-gradient(80deg, rgb(0 0 0), transparent 70%);
+  background-size: 300% 200%;
+  background-blend-mode: hard-light;
 }
 
 .opacity-off {
@@ -77,6 +76,7 @@ body {
 }
 
 .logo-container {
+  z-index: 3;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -95,6 +95,15 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-centered {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -198,13 +207,73 @@ body {
   animation-fill-mode: forwards;
 }
 
-.button-container {
+.logo-link-container {
+  position: fixed;
+  bottom: 20px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-link img {
+  width: 80px;
+  height: 80px;
+}
+
+.stats-container {
+  margin-top: 54vh;
+}
+
+.stats-line {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  transition-duration: 0.4s;
+}
+
+.stats-thin {
+}
+
+.stats-bold {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.gold {
+  color: #cea141;
+}
+
+.silver {
+  color: #dadada;
+}
+
+.red {
+  color: #af2929;
+}
+
+.green {
+  color: #74af16;
+}
+
+.blue {
+  color: #2789e6;
+}
+
+.black {
+  color: #141414;
+}
+
+.pink {
+  color: #e61d92;
 }
 
 .button {
   padding: 10px;
   color: #222;
-  background: #c4a255;
+  background: #cea141;
   margin-top: 20px;
 }
 
