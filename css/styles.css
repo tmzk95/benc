@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  background-image: url("../images/stone2.jpg");
+  height: 100vh;
+  color: #c4a255;
+}
+
+.container-centered {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container-fixed {
+  position: fixed;
+}
+
+.logo-background {
+  position: fixed;
+  margin-left: 0vw;
+  width: 200vw;
+  height: 400vh;
+  transform: rotate(20deg);
+  animation-name: slideout;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.lb-1 {
+  background: #1f1f1f;
+  animation-delay: 1.7s;
+}
+
+.lb-2 {
+  background: #e0ba0d;
+  animation-delay: 1.9s;
+}
+
+.lb-3 {
+  background: #b6b6b6;
+  animation-delay: 2s;
+}
+
+.lb-4 {
+  background: #400cce;
+  animation-delay: 2.1s;
+}
+
+.lb-5 {
+  background: #0cce7d;
+  animation-delay: 2.2s;
+}
+
+.logo {
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  animation-name: slidein, expand;
+  animation-duration: 0.4s, 0.4s;
+  animation-delay: 0s, 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100vw;
+    height: 100px;
+    width: 300px;
+  }
+
+  60% {
+    margin-left: -10vw;
+    height: 100px;
+    width: 60px;
+  }
+
+  to {
+    margin-left: 0vw;
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@keyframes expand {
+  from {
+    height: 100px;
+    width: 100px;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  90% {
+    height: 1400px;
+    width: 1400px;
+    transform: rotate(220deg);
+    opacity: 0;
+  }
+
+  to {
+    height: 100px;
+    width: 100px;
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideout {
+  from {
+    margin-left: 0vw;
+  }
+
+  to {
+    margin-left: -600vw;
+  }
+}
