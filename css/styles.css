@@ -1,21 +1,153 @@
 body {
   margin: 0;
-  background-image: url("../images/stone2.jpg");
+  background-image: url("../images/stone3.jpg");
   height: 100vh;
   color: #c4a255;
+  font-family: "Bebas Neue", cursive;
 }
 
-.container-centered {
+.gradient-container-gold {
+  margin-top: 290px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(320deg, rgb(255 253 43), transparent 70%),
+    linear-gradient(120deg, rgb(255 0 0), transparent 120%),
+    linear-gradient(230deg, rgb(255 217 54), transparent 70%),
+    linear-gradient(80deg, rgb(255 225 86), transparent 70%);
+  background-size: 300% 200%;
+  background-blend-mode: saturation;
+  animation: gradient 12s ease infinite;
+  transition-duration: 3s;
+  transition-delay: 1s;
+}
+
+.gradient-container-green {
+  margin-top: 290px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(320deg, rgb(43, 255, 124), transparent 70%),
+    linear-gradient(120deg, rgb(66, 185, 194), transparent 120%),
+    linear-gradient(230deg, rgb(195, 255, 54), transparent 70%),
+    linear-gradient(80deg, rgb(56, 124, 56), transparent 70%);
+  background-size: 300% 200%;
+  background-blend-mode: saturation;
+  animation: gradient 12s ease infinite;
+  transition-duration: 3s;
+  transition-delay: 1s;
+}
+
+.opacity-off {
+  opacity: 0;
+}
+
+.opacity-on {
+  opacity: 1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.logo-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  flex-wrap: wrap;
+  position: fixed;
+  animation-name: hidelogo;
+  animation-duration: 0.2s;
+  animation-delay: 2.3s;
+  animation-fill-mode: forwards;
 }
 
-.container-fixed {
-  position: fixed;
+.container-centered-y {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.card-container {
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.card-container img {
+  width: 180px;
+  animation-name: fadein;
+  animation-duration: 0.2s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-front {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.card-back img {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.card-front img {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.card-flip {
+  transform-style: preserve-3d;
+  animation-name: flip;
+  animation-duration: 0.4s;
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
 }
 
 .logo-background {
@@ -64,6 +196,16 @@ body {
   animation-duration: 0.4s, 0.4s;
   animation-delay: 0s, 1.5s;
   animation-fill-mode: forwards;
+}
+
+.button-container {
+}
+
+.button {
+  padding: 10px;
+  color: #222;
+  background: #c4a255;
+  margin-top: 20px;
 }
 
 @keyframes slidein {
@@ -116,5 +258,39 @@ body {
 
   to {
     margin-left: -600vw;
+  }
+}
+
+@keyframes hidelogo {
+  from {
+    height: 100vh;
+  }
+
+  to {
+    height: 0vh;
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes fadein {
+  from {
+    margin-top: 60px;
+    width: 60px;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 0px;
+    width: 180px;
+    opacity: 1;
   }
 }

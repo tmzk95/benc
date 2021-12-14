@@ -5,9 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/script.js"></script>
   </head>
   <body>
-    <div class="container-centered container-fixed">
+    <div class="logo-container">
       <div class="logo-background lb-5"></div>
       <div class="logo-background lb-4"></div>
       <div class="logo-background lb-3"></div>
@@ -17,8 +24,24 @@
         <img src="images/logoBenc.png" />
       </div>
     </div>
-    <div class="container-centered">
-      <div>Tu będzie cały content</div>
+    <div class="container-centered-y button-container">
+      <div onclick="startNewGame()" class="button">NOWA GRA</div>
+    </div>
+    <div class="gradient-container-gold opacity-off" translate="no">
+      Karta Złota
+    </div>
+    <div class="gradient-container-green opacity-off" translate="no">
+      Karta Zielona
+    </div>
+    <div class="container-centered-y">
+      <div class="card-container hidden">
+        <div class="card">
+          <div class="card-back"><img src="images/cards/cardBack.png" /></div>
+          <div class="card-front">
+            <img class="image-front" src="images/cards/card1.png" />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
