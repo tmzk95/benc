@@ -151,6 +151,8 @@ body {
 
 .card-zoom-in img {
   width: 90vw;
+  border-radius: 18px;
+  box-shadow: 1px 1px 45px rgba(0, 0, 0, 1) !important;
 }
 
 .card {
