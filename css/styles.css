@@ -125,6 +125,7 @@ body {
 
 .card-container {
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective-origin: 0px 200px;
 }
 
 .card-container img {
@@ -371,23 +372,23 @@ body {
 
 @keyframes tilt {
   from {
-    transform: rotateY(180deg) rotateX(-3deg);
+    transform: rotateY(180deg);
   }
 
   25% {
-    transform: rotateY(190deg) rotateX(-3deg);
+    transform: rotateY(190deg);
   }
 
   50% {
-    transform: rotateY(180deg) rotateX(-3deg);
+    transform: rotateY(180deg);
   }
 
   75% {
-    transform: rotateY(170deg) rotateX(-3deg);
+    transform: rotateY(170deg);
   }
 
   to {
-    transform: rotateY(180deg) rotateX(-3deg);
+    transform: rotateY(180deg);
   }
 }
 
