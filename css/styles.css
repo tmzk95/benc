@@ -255,14 +255,8 @@ body {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.stats-coin-amount {
-  margin-top: -4px;
-  font-size: 20px;
-}
-
-.stats-flag {
-  margin-top: -5px;
-  font-size: 20px;
+.remix {
+  font-size: 16px;
 }
 
 .gold {

@@ -54,10 +54,13 @@ function displayGradientContainer(type) {
 
 function displayRandomCoinAmount() {
   let index = Math.round(Math.random()) + 1;
-  const amount = document.getElementsByClassName("stats-coin-amount");
-  amount[0].textContent = "";
-  for (let i = 0; i < index; i++) {
-    amount[0].textContent += "◉ ";
+  const coin1 = document.getElementsByClassName("coin-1");
+  const coin2 = document.getElementsByClassName("coin-2");
+  if (index == 1) {
+    coin1[0].classList.remove("hidden");
+  }
+  if (index == 2) {
+    coin2[0].classList.remove("hidden");
   }
 }
 
