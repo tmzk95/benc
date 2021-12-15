@@ -53,7 +53,7 @@ function displayGradientContainer(type) {
 }
 
 function displayRandomCoinAmount() {
-  let index = Math.round(Math.random()) + 2;
+  let index = Math.round(Math.random() * 2);
   const coin1 = document.getElementsByClassName("coin-1");
   const coin2 = document.getElementsByClassName("coin-2");
   const coin3 = document.getElementsByClassName("coin-3");
