@@ -133,18 +133,24 @@ body {
 }
 
 .card-container {
+  z-index: 4;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   perspective-origin: 0px 200px;
 }
 
 .card-container img {
+  width: 200px;
   border-radius: 6px;
-  width: 180px;
-  animation-name: fadein;
-  animation-duration: 0.4s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
+  animation-name: fadein, widthincrease;
+  animation-duration: 0.4s, 0.4s;
+  animation-delay: 0s, 1.6s;
+  animation-fill-mode: backwards;
   animation-timing-function: ease;
+  transition-duration: 0.5s;
+}
+
+.card-container:hover img {
+  width: 90vw;
 }
 
 .card {
@@ -183,6 +189,9 @@ body {
   animation-delay: 1.6s, 2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease, linear;
+}
+
+.card-flip img {
 }
 
 .logo-background {
@@ -272,6 +281,7 @@ body {
 .help {
   width: 90vw;
   margin-top: 30px;
+  margin-bottom: 120px;
 }
 
 .help-title {
@@ -287,6 +297,7 @@ body {
 .story {
   width: 90vw;
   margin-top: 30px;
+  margin-bottom: 120px;
 }
 
 .story-title {
@@ -443,7 +454,7 @@ body {
   }
 
   25% {
-    transform: rotateY(190deg);
+    transform: rotateY(186deg);
   }
 
   50% {
@@ -451,11 +462,21 @@ body {
   }
 
   75% {
-    transform: rotateY(170deg);
+    transform: rotateY(174deg);
   }
 
   to {
     transform: rotateY(180deg);
+  }
+}
+
+@keyframes widthincrease {
+  from {
+    width: 160px;
+  }
+
+  to {
+    width: 200px;
   }
 }
 
@@ -468,7 +489,7 @@ body {
 
   to {
     margin-top: 0px;
-    width: 200px;
+    width: 160px;
     opacity: 1;
   }
 }
