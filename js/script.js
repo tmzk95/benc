@@ -56,10 +56,10 @@ function displayRandomCoinAmount() {
   let index = Math.round(Math.random()) + 1;
   const coin1 = document.getElementsByClassName("coin-1");
   const coin2 = document.getElementsByClassName("coin-2");
-  if (index == 1) {
+  if (index == 0) {
     coin1[0].classList.remove("hidden");
   }
-  if (index == 2) {
+  if (index == 1) {
     coin2[0].classList.remove("hidden");
   }
 }
