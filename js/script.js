@@ -57,13 +57,12 @@ function displayRandomCoinAmount() {
   const coin1 = document.getElementsByClassName("coin-1");
   const coin2 = document.getElementsByClassName("coin-2");
   const coin3 = document.getElementsByClassName("coin-3");
-  if (index == 0) {
-    coin1[0].classList.remove("hidden");
-  }
+  coin1[0].classList.remove("hidden");
   if (index == 1) {
     coin2[0].classList.remove("hidden");
   }
   if (index == 2) {
+    coin2[0].classList.remove("hidden");
     coin3[0].classList.remove("hidden");
   }
 }
