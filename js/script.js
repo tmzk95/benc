@@ -121,3 +121,12 @@ function displayStory() {
     }, index * 80 + 40);
   });
 }
+
+function toogleCardZoom() {
+  const image = document.getElementsByClassName("card-container");
+  if (Array.from(image[0].classList).includes("card-zoom-in")) {
+    image[0].classList.remove("card-zoom-in");
+  } else {
+    image[0].classList.add("card-zoom-in");
+  }
+}

@@ -149,7 +149,7 @@ body {
   transition-duration: 0.5s;
 }
 
-.card-container:hover img {
+.card-zoom-in img {
   width: 90vw;
 }
 
