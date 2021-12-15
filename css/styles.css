@@ -166,10 +166,12 @@ body {
 
 .card-flip {
   transform-style: preserve-3d;
-  animation-name: flip;
-  animation-duration: 0.4s;
-  animation-delay: 1.6s;
+  animation-name: flip, tilt;
+  animation-iteration-count: 1, infinite;
+  animation-duration: 0.4s, 6s;
+  animation-delay: 1.6s, 2s;
   animation-fill-mode: forwards;
+  animation-timing-function: ease, linear;
 }
 
 .logo-background {
@@ -364,6 +366,28 @@ body {
 
   to {
     transform: rotateY(180deg);
+  }
+}
+
+@keyframes tilt {
+  from {
+    transform: rotateY(180deg) rotateX(-3deg);
+  }
+
+  25% {
+    transform: rotateY(190deg) rotateX(-3deg);
+  }
+
+  50% {
+    transform: rotateY(180deg) rotateX(-3deg);
+  }
+
+  75% {
+    transform: rotateY(170deg) rotateX(-3deg);
+  }
+
+  to {
+    transform: rotateY(180deg) rotateX(-3deg);
   }
 }
 
