@@ -13,17 +13,20 @@ function startNewGame() {
   const selectedCard = drawCard();
   displayGradientContainer(selectedCard.type);
 
+  const buttonContainer = document.getElementsByClassName("button-container");
+  buttonContainer[0].classList.add("hidden");
+
   const cardContainer = document.getElementsByClassName("card-container");
   cardContainer[0].classList.remove("hidden");
+
+  const statsContainer = document.getElementsByClassName("stats-container");
+  statsContainer[0].classList.remove("hidden");
 
   const imageFront = document.getElementsByClassName("image-front");
   imageFront[0].src = selectedCard.src;
 
   const card = document.getElementsByClassName("card");
   card[0].classList.add("card-flip");
-
-  const buttonContainer = document.getElementsByClassName("button-container");
-  buttonContainer[0].classList.add("hidden");
 
   displayRandomCoinAmount();
   displayRandomCardAmount();
@@ -33,23 +36,30 @@ function startNewGame() {
   Array.from(lines).forEach((line, index) => {
     setTimeout(() => {
       line.classList.remove("opacity-off");
-    }, index * 1000 + 3000);
+    }, index * 500 + 3000);
   });
 }
 
 function displayGradientContainer(type) {
-  if (type === "gold") {
-    const gradientContainer = document.getElementsByClassName("gradient-gold");
-    gradientContainer[0].classList.remove("opacity-off");
-  }
-  if (type === "green") {
-    const gradientContainer = document.getElementsByClassName("gradient-green");
-    gradientContainer[0].classList.remove("opacity-off");
-  }
-  if (type === "red") {
-    const gradientContainer = document.getElementsByClassName("gradient-red");
-    gradientContainer[0].classList.remove("opacity-off");
-  }
+  const gradients = document.getElementsByClassName("gradients");
+  gradients[0].classList.remove("hidden");
+
+  setTimeout(() => {
+    if (type === "gold") {
+      const gradientContainer =
+        document.getElementsByClassName("gradient-gold");
+      gradientContainer[0].classList.remove("opacity-off");
+    }
+    if (type === "green") {
+      const gradientContainer =
+        document.getElementsByClassName("gradient-green");
+      gradientContainer[0].classList.remove("opacity-off");
+    }
+    if (type === "red") {
+      const gradientContainer = document.getElementsByClassName("gradient-red");
+      gradientContainer[0].classList.remove("opacity-off");
+    }
+  }, 0);
 }
 
 function displayRandomCoinAmount() {
@@ -82,4 +92,32 @@ function displayRandomFlagColor() {
 function drawCard() {
   let index = Math.round(Math.random() * (CARD_IMAGES.length - 1));
   return CARD_IMAGES[index];
+}
+
+function displayHelp() {
+  const buttonContainer = document.getElementsByClassName("button-container");
+  buttonContainer[0].classList.add("hidden");
+  const helpContainer = document.getElementsByClassName("help-container");
+  helpContainer[0].classList.remove("hidden");
+
+  const lines = document.getElementsByClassName("help-line");
+  Array.from(lines).forEach((line, index) => {
+    setTimeout(() => {
+      line.classList.remove("opacity-off");
+    }, index * 80 + 40);
+  });
+}
+
+function displayStory() {
+  const buttonContainer = document.getElementsByClassName("button-container");
+  buttonContainer[0].classList.add("hidden");
+  const helpContainer = document.getElementsByClassName("story-container");
+  helpContainer[0].classList.remove("hidden");
+
+  const lines = document.getElementsByClassName("story-line");
+  Array.from(lines).forEach((line, index) => {
+    setTimeout(() => {
+      line.classList.remove("opacity-off");
+    }, index * 80 + 40);
+  });
 }
