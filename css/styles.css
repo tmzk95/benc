@@ -7,7 +7,7 @@ body {
 }
 
 .gradient-container {
-  margin-top: 290px;
+  margin-top: 320px;
   padding-top: 30px;
   padding-bottom: 10px;
   width: 100vw;
@@ -132,7 +132,7 @@ body {
   border-radius: 6px;
   width: 180px;
   animation-name: fadein;
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
   animation-delay: 0s;
   animation-fill-mode: forwards;
 }
@@ -426,7 +426,7 @@ body {
 
   to {
     margin-top: 0px;
-    width: 180px;
+    width: 200px;
     opacity: 1;
   }
 }
