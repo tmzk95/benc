@@ -123,6 +123,13 @@ body {
   display: none;
 }
 
+.container-shadow {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0 0 0 /40%), rgba(255 255 255 /20%));
+}
+
 .card-container {
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   perspective-origin: 0px 200px;
@@ -187,7 +194,7 @@ body {
 }
 
 .lb-1 {
-  background: #1f1f1f;
+  background: #272727;
   animation-delay: 1.7s;
 }
 
@@ -237,7 +244,8 @@ body {
 }
 
 .stats-container {
-  margin-top: 50vh;
+  z-index: 2;
+  margin-top: 410px;
 }
 
 .stats-line {
@@ -291,6 +299,7 @@ body {
 }
 
 .button-list {
+  z-index: 2;
   display: flex;
   flex-flow: column;
 }
