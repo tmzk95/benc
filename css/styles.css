@@ -7,9 +7,11 @@ body {
 }
 
 .gradient-container {
-  margin-top: 320px;
+  /*margin-top: 320px;
   padding-top: 30px;
-  padding-bottom: 10px;
+  padding-bottom: 10px;*/
+  padding-top: 40px;
+  padding-bottom: 280px;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -159,7 +161,8 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
+  margin-top: 75px;
 }
 
 .card-back {
@@ -259,7 +262,8 @@ body {
 
 .stats {
   z-index: 2;
-  margin-top: 410px;
+  /* margin-top: 410px; */
+  margin-top: 340px;
 }
 
 .stats-line {
