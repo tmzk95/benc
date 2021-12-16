@@ -151,7 +151,7 @@ body {
 
 .card-zoom-in img {
   width: 90vw;
-  border-radius: 18px;
+  border-radius: 12px;
   box-shadow: 1px 1px 45px rgba(0, 0, 0, 1) !important;
 }
 
@@ -282,12 +282,12 @@ body {
 
 .help {
   width: 90vw;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 120px;
 }
 
 .help-title {
-  padding: 20px;
+  padding: 40px;
   text-align: center;
 }
 
@@ -298,12 +298,12 @@ body {
 
 .story {
   width: 90vw;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 120px;
 }
 
 .story-title {
-  padding: 20px;
+  padding: 40px;
   text-align: center;
 }
 
