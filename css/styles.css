@@ -266,6 +266,7 @@ body {
 }
 
 .logo-link-container {
+  z-index: 6;
   position: fixed;
   bottom: 20px;
   width: 100vw;
