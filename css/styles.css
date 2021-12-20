@@ -10,7 +10,8 @@ body {
   /*margin-top: 320px;
   padding-top: 30px;
   padding-bottom: 10px;*/
-  padding-top: 40px;
+  font-size: 28px;
+  padding-top: 30px;
   padding-bottom: 280px;
   width: 100vw;
   display: flex;
@@ -134,6 +135,21 @@ body {
   height: 100vh;
   position: fixed;
   background: linear-gradient(0deg, rgba(0 0 0 /40%), rgba(255 255 255 /20%));
+}
+
+.container-terminal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgb(6 39 29);
+}
+
+.container-terminal-shadow {
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  box-shadow: inset 0px 0px 120px rgb(0, 1, 22, 0.7);
 }
 
 .card-container {
@@ -303,19 +319,27 @@ body {
 }
 
 .story {
+  color: rgb(4 190 82);
+  font-weight: 700;
+  z-index: 4;
   width: 90vw;
   margin-top: 20px;
   margin-bottom: 120px;
 }
 
 .story-title {
-  padding: 40px;
-  text-align: center;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .story-line {
+}
+
+.story-pointer {
+  animation: pointeranimation 1.2s ease infinite;
+}
+
+.story-p {
   font-family: "Courier New", Courier, monospace;
-  transition-duration: 0.4s;
 }
 
 .remix {
@@ -499,5 +523,19 @@ body {
     margin-top: 0px;
     width: 160px;
     opacity: 1;
+  }
+}
+
+@keyframes pointeranimation {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }

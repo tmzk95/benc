@@ -4,7 +4,7 @@ const CARD_IMAGES = [
   { src: "images/cards/card3.png", type: "green" },
   { src: "images/cards/card4.png", type: "green" },
   { src: "images/cards/card5.png", type: "gold" },
-  { src: "images/cards/card6.png", type: "gold" },
+  { src: "images/cards/card6.png", type: "red" },
 ];
 
 const FLAG_COLORS = ["red", "green", "blue", "black", "silver", "pink"];
@@ -108,7 +108,7 @@ function displayHelp() {
   });
 }
 
-function displayStory() {
+function displayStoryOld() {
   const buttonContainer = document.getElementsByClassName("button-container");
   buttonContainer[0].classList.add("hidden");
   const helpContainer = document.getElementsByClassName("story-container");
@@ -122,6 +122,26 @@ function displayStory() {
   });
 }
 
+function displayStory() {
+  const buttonContainer = document.getElementsByClassName("button-container");
+  buttonContainer[0].classList.add("hidden");
+  const helpContainer = document.getElementsByClassName("story-container");
+  helpContainer[0].classList.remove("hidden");
+  const terminalContainer =
+    document.getElementsByClassName("container-terminal");
+  terminalContainer[0].classList.remove("hidden");
+  const terminalShadowContainer = document.getElementsByClassName(
+    "container-terminal-shadow"
+  );
+  terminalShadowContainer[0].classList.remove("hidden");
+
+  const paragraphs = document.getElementsByClassName("story-p");
+  let delay = 4500;
+  Array.from(paragraphs).forEach((paragraph) => {
+    delay = displayTextParagraphWithEffect(paragraph, delay);
+  });
+}
+
 function toogleCardZoom() {
   const image = document.getElementsByClassName("card-container");
   if (Array.from(image[0].classList).includes("card-zoom-in")) {
@@ -129,4 +149,36 @@ function toogleCardZoom() {
   } else {
     image[0].classList.add("card-zoom-in");
   }
+}
+
+function displayTextParagraphWithEffect(paragraph, delay) {
+  const storyLine = paragraph.getElementsByClassName("story-line")[0];
+  const brs = paragraph.getElementsByTagName("br");
+  const fullText = Array.from(storyLine.textContent);
+  let text = "";
+  storyLine.textContent = "";
+  fullText.forEach((letter) => {
+    delay += 10;
+    setTimeout(() => {
+      text = `${text}${letter}`;
+      if (text.length === 1) {
+        const pointerContainer =
+          document.getElementsByClassName("story-pointer");
+        pointerContainer[0].classList.add("hidden");
+      }
+      if (text.length === fullText.length) {
+        const pointerContainer =
+          document.getElementsByClassName("story-pointer");
+        pointerContainer[0].classList.remove("hidden");
+        if (brs && brs.length) {
+          brs[0].classList.remove("hidden");
+        }
+      }
+      storyLine.textContent = text;
+      window.scrollTo(0, document.body.scrollHeight);
+    }, delay);
+  });
+
+  delay += 1000;
+  return delay;
 }
