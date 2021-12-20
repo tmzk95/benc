@@ -158,7 +158,7 @@ function displayTextParagraphWithEffect(paragraph, delay) {
   let text = "";
   storyLine.textContent = "";
   fullText.forEach((letter) => {
-    delay += 10;
+    delay += 30;
     setTimeout(() => {
       text = `${text}${letter}`;
       if (text.length === 1) {
