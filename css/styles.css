@@ -127,7 +127,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .container-shadow {
@@ -141,7 +141,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: rgb(6 39 29);
+  background: rgb(6 28 39);
 }
 
 .container-terminal-shadow {
@@ -149,7 +149,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  box-shadow: inset 0px 0px 120px rgb(0, 1, 22, 0.7);
+  box-shadow: inset 0px 0px 120px rgb(0, 1, 22, 0.8);
 }
 
 .card-container {
@@ -279,6 +279,27 @@ body {
   height: 48px;
 }
 
+.keys-container {
+  background: #2d2d2d;
+  z-index: 5;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.key {
+  padding-top: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 6px;
+  margin: 5px;
+  margin-top: 10px;
+  background: rgb(34, 34, 34);
+}
+
 .stats {
   z-index: 2;
   /* margin-top: 410px; */
@@ -320,12 +341,13 @@ body {
 }
 
 .story {
-  color: rgb(4 190 82);
+  color: rgb(91 206 202);
   font-weight: 700;
   z-index: 4;
   width: 90vw;
   margin-top: 20px;
-  margin-bottom: 120px;
+  margin-bottom: 180px;
+  text-shadow: 0px 0px 5px rgb(4 178 190);
 }
 
 .story-title {
@@ -341,6 +363,12 @@ body {
 
 .story-p {
   font-family: "Courier New", Courier, monospace;
+}
+
+.option-choosen {
+  background: rgb(242 69 153);
+  text-shadow: none;
+  box-shadow: 0px 0px 8px rgb(255 66 158);
 }
 
 .remix {

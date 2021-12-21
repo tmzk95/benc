@@ -122,11 +122,13 @@ function displayStoryOld() {
   });
 }
 
-function displayStory() {
+function displayStory(storyClass) {
   const buttonContainer = document.getElementsByClassName("button-container");
   buttonContainer[0].classList.add("hidden");
   const helpContainer = document.getElementsByClassName("story-container");
   helpContainer[0].classList.remove("hidden");
+  const keysContainer = document.getElementsByClassName("keys-container");
+  keysContainer[0].classList.remove("hidden");
   const terminalContainer =
     document.getElementsByClassName("container-terminal");
   terminalContainer[0].classList.remove("hidden");
@@ -135,9 +137,11 @@ function displayStory() {
   );
   terminalShadowContainer[0].classList.remove("hidden");
 
-  const paragraphs = document.getElementsByClassName("story-p");
+  const paragraphs = document.getElementsByClassName(storyClass || "story-1");
+  const options = document.getElementsByClassName("story-options");
   let delay = 4500;
-  Array.from(paragraphs).forEach((paragraph) => {
+  [...Array.from(paragraphs), ...Array.from(options)].forEach((paragraph) => {
+    paragraph.classList.remove("hidden");
     delay = displayTextParagraphWithEffect(paragraph, delay);
   });
 }
@@ -152,33 +156,106 @@ function toogleCardZoom() {
 }
 
 function displayTextParagraphWithEffect(paragraph, delay) {
-  const storyLine = paragraph.getElementsByClassName("story-line")[0];
+  const storyLines = paragraph.getElementsByClassName("story-line");
+  const storyOptions = paragraph.getElementsByClassName("story-option");
   const brs = paragraph.getElementsByTagName("br");
-  const fullText = Array.from(storyLine.textContent);
-  let text = "";
-  storyLine.textContent = "";
-  fullText.forEach((letter) => {
-    delay += 30;
-    setTimeout(() => {
-      text = `${text}${letter}`;
-      if (text.length === 1) {
-        const pointerContainer =
-          document.getElementsByClassName("story-pointer");
-        pointerContainer[0].classList.add("hidden");
-      }
-      if (text.length === fullText.length) {
-        const pointerContainer =
-          document.getElementsByClassName("story-pointer");
-        pointerContainer[0].classList.remove("hidden");
-        if (brs && brs.length) {
-          brs[0].classList.remove("hidden");
+
+  if (storyLines && storyLines.length) {
+    const fullText = Array.from(storyLines[0].textContent);
+    let text = "";
+    storyLines[0].textContent = "";
+    fullText.forEach((letter) => {
+      delay += 5;
+      setTimeout(() => {
+        text = `${text}${letter}`;
+        if (text.length === 1) {
+          const pointerContainer =
+            document.getElementsByClassName("story-pointer");
+          pointerContainer[0].classList.add("hidden");
         }
-      }
-      storyLine.textContent = text;
-      window.scrollTo(0, document.body.scrollHeight);
-    }, delay);
-  });
+        if (text.length === fullText.length) {
+          const pointerContainer =
+            document.getElementsByClassName("story-pointer");
+          pointerContainer[0].classList.remove("hidden");
+          if (brs && brs.length) {
+            brs[0].classList.remove("hidden");
+          }
+        }
+        storyLines[0].textContent = text;
+        window.scrollTo(0, document.body.scrollHeight);
+      }, delay);
+    });
+  }
+  if (storyOptions && storyOptions.length) {
+    Array.from(storyOptions).forEach((option) => {
+      delay += 5;
+      setTimeout(() => {
+        option.classList.remove("hidden");
+        window.scrollTo(0, document.body.scrollHeight);
+      }, delay);
+    });
+  }
 
   delay += 1000;
   return delay;
+}
+
+function keyDown() {
+  const storyOptions = document.getElementsByClassName("story-option");
+  const storyOptionsArray = Array.from(storyOptions);
+  if (storyOptionsArray && storyOptionsArray.length) {
+    const index = storyOptionsArray.findIndex((option) =>
+      Array.from(option.classList).includes("option-choosen")
+    );
+    storyOptions[index].classList.remove("option-choosen");
+    if (index >= storyOptionsArray.length - 1) {
+      storyOptions[0].classList.add("option-choosen");
+    } else {
+      storyOptions[index + 1].classList.add("option-choosen");
+    }
+  }
+}
+
+function keyUp() {
+  const storyOptions = document.getElementsByClassName("story-option");
+  const storyOptionsArray = Array.from(storyOptions);
+  if (storyOptionsArray && storyOptionsArray.length) {
+    const index = storyOptionsArray.findIndex((option) =>
+      Array.from(option.classList).includes("option-choosen")
+    );
+    storyOptions[index].classList.remove("option-choosen");
+    if (index <= 0) {
+      storyOptions[storyOptionsArray.length - 1].classList.add(
+        "option-choosen"
+      );
+    } else {
+      storyOptions[index - 1].classList.add("option-choosen");
+    }
+  }
+}
+
+const STORY_CLASSES = ["story-1", "story-2", "story-3", "story-4"];
+
+function keyEnter() {
+  const storyOptions = document.getElementsByClassName("story-option");
+  const storyOptionsArray = Array.from(storyOptions);
+  if (storyOptionsArray && storyOptionsArray.length) {
+    const index = storyOptionsArray.findIndex((option) =>
+      Array.from(option.classList).includes("option-choosen")
+    );
+    console.log(index);
+    const paragraphs = document.getElementsByClassName("story-p");
+    Array.from(paragraphs).forEach((paragraph) => {
+      paragraph.classList.add("hidden");
+    });
+    const options = document.getElementsByClassName("story-option");
+    Array.from(options).forEach((option) => {
+      option.classList.add("hidden");
+    });
+    const brs = document.getElementsByClassName("br-to-hide");
+    Array.from(brs).forEach((br) => {
+      br.classList.add("hidden");
+    });
+    displayStory(STORY_CLASSES[index]);
+  }
 }
