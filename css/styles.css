@@ -305,6 +305,12 @@ body {
     inset -2px -2px 1px rgb(0 0 0 / 24%);
 }
 
+.key:active {
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 50%),
+    inset -1px -1px 1px rgb(255 255 255 / 28%),
+    inset 2px 2px 1px rgb(0 0 0 / 24%);
+}
+
 .stats {
   z-index: 2;
   /* margin-top: 410px; */

@@ -276,8 +276,24 @@ function keyUp() {
   }
 }
 
-const STORY_CLASSES = ["story-1", "story-2", "story-3", "story-4"];
-const AUDIO_CLASSES = ["audio-1", "audio-2", "audio-3", "audio-4"];
+const STORY_CLASSES = [
+  "story-1",
+  "story-2",
+  "story-3",
+  "story-4",
+  "story-5",
+  "story-6",
+  "story-7",
+];
+const AUDIO_CLASSES = [
+  "audio-1",
+  "audio-2",
+  "audio-3",
+  "audio-4",
+  "audio-5",
+  "audio-6",
+  "audio-7",
+];
 
 function keyEnter() {
   const storyOptions = document.getElementsByClassName("story-option");
