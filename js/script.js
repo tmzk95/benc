@@ -16,6 +16,18 @@ function startNewGame() {
   const buttonContainer = document.getElementsByClassName("button-container");
   buttonContainer[0].classList.add("hidden");
 
+  const loadGameContainer = document.getElementsByClassName(
+    "load-game-container"
+  );
+  loadGameContainer[0].classList.add("hidden");
+  const terminalContainer =
+    document.getElementsByClassName("container-terminal");
+  terminalContainer[0].classList.add("hidden");
+  const terminalShadowContainer = document.getElementsByClassName(
+    "container-terminal-shadow"
+  );
+  terminalShadowContainer[0].classList.add("hidden");
+
   const cardContainer = document.getElementsByClassName("card-container");
   cardContainer[0].classList.remove("hidden");
 
@@ -38,6 +50,18 @@ function startNewGame() {
       line.classList.remove("opacity-off");
     }, index * 500 + 3000);
   });
+}
+
+function displayNewGame() {
+  displayStory(
+    "story-t",
+    "load-game-container",
+    { startDelay: 1500, paragraphDelay: 300, letterDelay: 5 },
+    true
+  );
+  setTimeout(() => {
+    startNewGame();
+  }, 13000);
 }
 
 function displayGradientContainer(type) {
@@ -122,13 +146,17 @@ function displayStoryOld() {
   });
 }
 
-function displayStory(storyClass) {
+function displayStory(storyClass, storyContainerClass, delays, hideKeys) {
   const buttonContainer = document.getElementsByClassName("button-container");
   buttonContainer[0].classList.add("hidden");
-  const helpContainer = document.getElementsByClassName("story-container");
+  const helpContainer = document.getElementsByClassName(
+    storyContainerClass || "story-container"
+  );
   helpContainer[0].classList.remove("hidden");
-  const keysContainer = document.getElementsByClassName("keys-container");
-  keysContainer[0].classList.remove("hidden");
+  if (!hideKeys) {
+    const keysContainer = document.getElementsByClassName("keys-container");
+    keysContainer[0].classList.remove("hidden");
+  }
   const terminalContainer =
     document.getElementsByClassName("container-terminal");
   terminalContainer[0].classList.remove("hidden");
@@ -137,12 +165,16 @@ function displayStory(storyClass) {
   );
   terminalShadowContainer[0].classList.remove("hidden");
 
+  if (!storyClass) {
+    playAudio(AUDIO_CLASSES[0]);
+  }
+
   const paragraphs = document.getElementsByClassName(storyClass || "story-1");
   const options = document.getElementsByClassName("story-options");
-  let delay = 4500;
+  let delay = delays?.startDelay || 4500;
   [...Array.from(paragraphs), ...Array.from(options)].forEach((paragraph) => {
     paragraph.classList.remove("hidden");
-    delay = displayTextParagraphWithEffect(paragraph, delay);
+    delay = displayTextParagraphWithEffect(paragraph, delay, delays);
   });
 }
 
@@ -155,17 +187,18 @@ function toogleCardZoom() {
   }
 }
 
-function displayTextParagraphWithEffect(paragraph, delay) {
+function displayTextParagraphWithEffect(paragraph, delay, delays) {
   const storyLines = paragraph.getElementsByClassName("story-line");
   const storyOptions = paragraph.getElementsByClassName("story-option");
   const brs = paragraph.getElementsByTagName("br");
+  const icons = paragraph.getElementsByTagName("i");
 
   if (storyLines && storyLines.length) {
     const fullText = Array.from(storyLines[0].textContent);
     let text = "";
     storyLines[0].textContent = "";
     fullText.forEach((letter) => {
-      delay += 5;
+      delay += delays?.letterDelay || 5;
       setTimeout(() => {
         text = `${text}${letter}`;
         if (text.length === 1) {
@@ -186,6 +219,15 @@ function displayTextParagraphWithEffect(paragraph, delay) {
       }, delay);
     });
   }
+  if (icons && icons.length) {
+    setTimeout(() => {
+      icons[0].classList.remove("hidden");
+      icons[1].classList.remove("hidden");
+      if (brs && brs.length) {
+        brs[0].classList.remove("hidden");
+      }
+    }, delay);
+  }
   if (storyOptions && storyOptions.length) {
     Array.from(storyOptions).forEach((option) => {
       delay += 5;
@@ -196,7 +238,7 @@ function displayTextParagraphWithEffect(paragraph, delay) {
     });
   }
 
-  delay += 1000;
+  delay += delays?.paragraphDelay || 1000;
   return delay;
 }
 
@@ -235,6 +277,7 @@ function keyUp() {
 }
 
 const STORY_CLASSES = ["story-1", "story-2", "story-3", "story-4"];
+const AUDIO_CLASSES = ["audio-1", "audio-2", "audio-3", "audio-4"];
 
 function keyEnter() {
   const storyOptions = document.getElementsByClassName("story-option");
@@ -256,6 +299,24 @@ function keyEnter() {
     Array.from(brs).forEach((br) => {
       br.classList.add("hidden");
     });
+    const icons = document.getElementsByClassName("i-to-hide");
+    Array.from(icons).forEach((icon) => {
+      icon.classList.add("hidden");
+    });
     displayStory(STORY_CLASSES[index]);
+    playAudio(AUDIO_CLASSES[index]);
   }
+}
+
+function playAudio(audioClass) {
+  var allAudioElements = document.getElementsByClassName("audio");
+  Array.from(allAudioElements).forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+
+  setTimeout(() => {
+    var elem = document.getElementsByClassName(audioClass);
+    elem[0].play();
+  }, 7800);
 }

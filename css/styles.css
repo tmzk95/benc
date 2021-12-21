@@ -280,7 +280,7 @@ body {
 }
 
 .keys-container {
-  background: #2d2d2d;
+  background: #191919;
   z-index: 5;
   position: fixed;
   bottom: 0;
@@ -288,6 +288,7 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+  box-shadow: 0px -2px 5px #0000008a;
 }
 
 .key {
@@ -298,6 +299,10 @@ body {
   margin: 5px;
   margin-top: 10px;
   background: rgb(34, 34, 34);
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 50%),
+    inset 1px 1px 1px rgb(255 255 255 / 28%),
+    inset -2px -2px 1px rgb(0 0 0 / 24%);
 }
 
 .stats {
@@ -340,8 +345,8 @@ body {
   transition-duration: 0.4s;
 }
 
-.story {
-  color: rgb(91 206 202);
+.terminal {
+  color: rgb(113 228 224);
   font-weight: 700;
   z-index: 4;
   width: 90vw;
@@ -428,12 +433,22 @@ body {
     inset -1px -1px 2px rgb(255 255 255 / 50%);
 }
 
-.red-bckg {
-  background: #dd3f17;
+.cyan-bckg {
+  background: #0481ac;
 }
 
 .gray-bckg {
   background: #646464;
+}
+
+.vol-down {
+  animation: speakeranimation 1.5s step-start infinite;
+  margin-left: calc(50vw - 36px);
+}
+
+.vol-up {
+  animation: speakeranimation 1.5s step-end infinite;
+  margin-left: -24px;
 }
 
 @keyframes slidein {
@@ -558,6 +573,20 @@ body {
 }
 
 @keyframes pointeranimation {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes speakeranimation {
   from {
     opacity: 0;
   }
