@@ -5,6 +5,15 @@ const CARD_IMAGES = [
   { src: "images/cards/card4.png", type: "green" },
   { src: "images/cards/card5.png", type: "gold" },
   { src: "images/cards/card6.png", type: "red" },
+  { src: "images/cards/card7.png", type: "green" },
+  { src: "images/cards/card8.png", type: "green" },
+  { src: "images/cards/card9.png", type: "green" },
+  { src: "images/cards/card10.png", type: "green" },
+  { src: "images/cards/card11.png", type: "gold" },
+  { src: "images/cards/card12.png", type: "gold" },
+  { src: "images/cards/card13.png", type: "red" },
+  { src: "images/cards/card14.png", type: "red" },
+  { src: "images/cards/card15.png", type: "red" },
 ];
 
 const FLAG_COLORS = ["red", "green", "blue", "black", "silver", "pink"];
@@ -59,6 +68,7 @@ function displayNewGame() {
     { startDelay: 1500, paragraphDelay: 300, letterDelay: 5 },
     true
   );
+  playAudio("audio-startup", 12000);
   setTimeout(() => {
     startNewGame();
   }, 13000);
@@ -166,7 +176,7 @@ function displayStory(storyClass, storyContainerClass, delays, hideKeys) {
   terminalShadowContainer[0].classList.remove("hidden");
 
   if (!storyClass) {
-    playAudio(AUDIO_CLASSES[0]);
+    playAudio(AUDIO_CLASSES[0], 7800);
   }
 
   const paragraphs = document.getElementsByClassName(storyClass || "story-1");
@@ -320,11 +330,11 @@ function keyEnter() {
       icon.classList.add("hidden");
     });
     displayStory(STORY_CLASSES[index]);
-    playAudio(AUDIO_CLASSES[index]);
+    playAudio(AUDIO_CLASSES[index], 7800);
   }
 }
 
-function playAudio(audioClass) {
+function playAudio(audioClass, timeout) {
   var allAudioElements = document.getElementsByClassName("audio");
   Array.from(allAudioElements).forEach((audio) => {
     audio.pause();
@@ -334,5 +344,5 @@ function playAudio(audioClass) {
   setTimeout(() => {
     var elem = document.getElementsByClassName(audioClass);
     elem[0].play();
-  }, 7800);
+  }, timeout);
 }
