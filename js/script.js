@@ -129,17 +129,12 @@ function drawCard() {
 }
 
 function displayHelp() {
-  const buttonContainer = document.getElementsByClassName("button-container");
-  buttonContainer[0].classList.add("hidden");
-  const helpContainer = document.getElementsByClassName("help-container");
-  helpContainer[0].classList.remove("hidden");
-
-  const lines = document.getElementsByClassName("help-line");
-  Array.from(lines).forEach((line, index) => {
-    setTimeout(() => {
-      line.classList.remove("opacity-off");
-    }, index * 80 + 40);
-  });
+  displayStory(
+    "story-h",
+    "help-container",
+    { startDelay: 2000, paragraphDelay: 300, letterDelay: 5 },
+    true
+  );
 }
 
 function displayStoryOld() {
